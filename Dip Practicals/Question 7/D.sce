@@ -1,0 +1,12 @@
+RGB=imread("D:\Landscape.jpg");
+I = rgb2gray(RGB);
+imshow(I);
+title('Original GrayScale Image');
+J = imnoise(I,'gaussian',0,0.025);
+figure();
+imshow(J);
+title('Portion of the Image with Added Gaussian Noise');
+K = wiener2(J,[5 5]);
+figure();
+imshow(K);
+title('Portion of the Image with Noise Removed by Wiener Filter');
